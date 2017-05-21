@@ -24,7 +24,7 @@ class Account(Base, crudalchemy.CRUDBase):
     email = sqlalchemy.Column(sqlalchemy.Unicode(256), primary_key=True)
     name = sqlalchemy.Column(sqlalchemy.Unicode(128), nullable=False)
     surname = sqlalchemy.Column(sqlalchemy.Unicode(128), nullable=True)
-    gender = sqlalchemy.Column(sqlalchemy.Enum(u'M', u'F'), nullable=True)
+    gender = sqlalchemy.Column(sqlalchemy.Enum('M', 'F'), nullable=True)
     contact = sqlalchemy.orm.relationship('Contact',
                                           uselist=False,
                                           back_populates='account')

@@ -92,7 +92,7 @@ class CRUDBase(object):
         sync_session = kwargs.pop('sync_session', 'evaluate')
         if not bulk:
             obj = cls.read(session, **pks)
-            for attr, value in kwargs.items():
+            for attr, value in list(kwargs.items()):
                 log.debug('Attr: %s - Value: %s' % (attr, value))
                 setattr(obj, attr, value)
             return obj
